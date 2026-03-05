@@ -52,8 +52,6 @@ public class StudentScoreDAO {
         }
         return list;
     }
-
-    // Lấy 1 score theo ID để điền vào form edit
     public StudentScore getScoreById(int id) {
         String sql = """
                 SELECT ss.student_score_id,
@@ -110,7 +108,6 @@ public class StudentScoreDAO {
         }
     }
 
-    // Cập nhật score1 và score2 theo ID
     public boolean updateScore(int scoreId, double score1, double score2) {
         String sql = """
                 UPDATE student_score_t

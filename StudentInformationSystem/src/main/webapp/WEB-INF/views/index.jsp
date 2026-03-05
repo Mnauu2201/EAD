@@ -30,7 +30,6 @@
         .btn-cancel { background: #888; }
         .btn-cancel:hover { background: #666; }
 
-        /* Nút edit hình cây bút */
         .btn-edit {
             background: none; border: none; cursor: pointer;
             color: #5a7a3a; font-size: 16px; padding: 4px 8px;
@@ -42,7 +41,6 @@
         th, td { padding: 10px 14px; text-align: center; border-bottom: 1px solid #e0e0e0; }
         tbody tr:hover { background: #f5f5f5; }
 
-        /* Modal */
         .overlay {
             display: none; position: fixed; inset: 0;
             background: rgba(0,0,0,0.5); z-index: 100;
@@ -118,8 +116,6 @@
         </tbody>
     </table>
 </div>
-
-<!-- Modal: Add Student -->
 <div id="studentModal" class="overlay">
     <div class="modal">
         <h3>Add New Student</h3>
@@ -138,8 +134,6 @@
         </form>
     </div>
 </div>
-
-<!-- Modal: Add Score -->
 <div id="scoreModal" class="overlay">
     <div class="modal">
         <h3>Add Score</h3>
@@ -177,8 +171,6 @@
         </form>
     </div>
 </div>
-
-<!-- Modal: Edit Score ✏️ -->
 <div id="editModal" class="overlay">
     <div class="modal">
         <h3>✏️ Edit Score</h3>
@@ -219,8 +211,6 @@
     function hideModal(id) {
         document.getElementById(id).classList.remove('active');
     }
-
-    // Mở modal edit và điền sẵn dữ liệu
     function openEditModal(scoreId, studentCode, studentName, subjectName, score1, score2) {
         document.getElementById('editScoreId').value    = scoreId;
         document.getElementById('editStudentCode').value = studentCode;
@@ -230,8 +220,6 @@
         document.getElementById('editScore2').value     = score2;
         showModal('editModal');
     }
-
-    // Click ra ngoài modal để đóng
     document.querySelectorAll('.overlay').forEach(el => {
         el.addEventListener('click', e => {
             if (e.target === el) el.classList.remove('active');

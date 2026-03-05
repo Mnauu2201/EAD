@@ -19,7 +19,6 @@ public class ScoreServlet extends HttpServlet {
     private final StudentDAO studentDAO    = new StudentDAO();
     private final SubjectDAO subjectDAO    = new SubjectDAO();
 
-    // GET: load trang edit
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -37,7 +36,6 @@ public class ScoreServlet extends HttpServlet {
         }
     }
 
-    // POST: thêm mới hoặc cập nhật
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
@@ -45,13 +43,11 @@ public class ScoreServlet extends HttpServlet {
         String action = req.getParameter("action");
 
         if ("update".equals(action)) {
-            // Cập nhật score
             int scoreId  = Integer.parseInt(req.getParameter("scoreId"));
             double score1 = Double.parseDouble(req.getParameter("score1"));
             double score2 = Double.parseDouble(req.getParameter("score2"));
             scoreDAO.updateScore(scoreId, score1, score2);
         } else {
-            // Thêm mới
             scoreDAO.insertScore(
                     Integer.parseInt(req.getParameter("studentId")),
                     Integer.parseInt(req.getParameter("subjectId")),
